@@ -1,0 +1,94 @@
+<div class="container">
+    <h3>Thanksgiving Order Form</h3>
+    <form name="orderForm" ng-controller="orderCtrl" ng-submit="orderForm.$valid && createOrder(order)">
+        <div class="form-group">
+            <h4>Contact Information:</h4>
+            <div>
+                <label>Full Name: </label>
+                <input type="text" ng-model="order.firstName" name="first" class="form-control" placeholder="First Name" required>
+                <input type="text" ng-model="order.lastName" name="last" class="form-control" placeholder="Last Name" required><span class="required">*</span>
+            </div>
+            <!--<div role="alert">-->
+                <!--<span class="error" ng-show="orderForm.first.$error.required || orderForm.last.$error.required">Full Name Required</span>-->
+            <!--</div>-->
+            <div>
+                <label>Phone: </label>
+                <input type="tel" ng-model="order.phone" name="phone" class="form-control" placeholder="xxx-xxx-xxxx" required><span class="required">*</span>
+                <!--<div role="alert">-->
+                    <!--<span class="error" ng-show="orderForm.phone.$error.required">Valid Phone Number Required</span>-->
+                <!--</div>-->
+            </div>
+            <div>
+                <label>Email: </label>
+                <input type="email" ng-model="order.email" name="email" class="form-control" placeholder="email@email.com" required><span class="required">*</span>
+                <!--<div role="alert">-->
+                    <!--<span class="error" ng-show="orderForm.email.$error.required">Valid Email Required</span>-->
+                <!--</div>-->
+            </div>
+            <div>
+                <p>What's the best way for us to reach you?</p>
+                <label><input type="checkbox" ng-model="order.contactMethod.email">Email   </label>
+                <label><input type="checkbox" ng-model="order.contactMethod.call">Call   </label>
+                <label><input type="checkbox" ng-model="order.contactMethod.text">Text   </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Pickup Date:</h4>
+            <select ng-model="order.pickup" name="pickup" required>
+                <option value="">-- Select Date --</option>
+                <option value="nov-24">Tuesday, November 24</option>
+                <option value="nov-25">Wednesday, November 25</option>
+            </select><span class="required">*</span>
+            <!--<div role="alert">-->
+                <!--<span class="error" ng-show="orderForm.pickup.$error.required">Pickup Date Required</span>-->
+            <!--</div>-->
+            <p>Pickups are located at the Norseman Distillery in NE Minneapolis from 3 - 7pm.</p>
+            <p>451 Taft St. NE, South Loading Dock</p>
+        </div>
+        <div class="form-group">
+            <h4>Place Order:</h4>
+            <p>Please enter desired quantities under each pie name and size.</p>
+            <div>
+                <h5>Apple Pie</h5>
+                9 inch, $24 each: <input type="number" ng-model="order.pie.apple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $9 each: <input type="number" ng-model="order.pie.apple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Chocolate Chess Pie</h5>
+                9 inch, $22 each: <input type="number" ng-model="order.pie.chocolate9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $8.50 each: <input type="number" ng-model="order.pie.chocolate6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Cranberry Chess Pie</h5>
+                9 inch, $22 each: <input type="number" ng-model="order.pie.cranberry9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $8.50 each: <input type="number" ng-model="order.pie.cranberry6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Maple Oatmeal Breakfast Pie</h5>
+                9 inch, $24 each: <input type="number" ng-model="order.pie.maple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $9 each: <input type="number" ng-model="order.pie.maple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Pear Apple Cranberry Pie</h5>
+                9 inch, $24 each: <input type="number" ng-model="order.pie.pear9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $9 each: <input type="number" ng-model="order.pie.pear6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Pecan Rum Maple Pie</h5>
+                9 inch, $24 each: <input type="number" ng-model="order.pie.pecan9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $9 each: <input type="number" ng-model="order.pie.pecan6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+            <div>
+                <h5>Pumpkin Pie</h5>
+                9 inch, $21 each: <input type="number" ng-model="order.pie.pumpkin9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+                6 inch, $8 each: <input type="number" ng-model="order.pie.pumpkin6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <p>{{total}}</p>
+            <h5>Total: $<p>{{total}}</p></h5>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+</div>

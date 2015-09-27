@@ -1,0 +1,120 @@
+* {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  font-size: 0px
+  font: inherit;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+  padding: 50px;
+  font: 14px "Lora", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #2f6fad;
+}
+
+a:hover {
+  font-weight: 700;
+  color: #2f6fad;
+}
+
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+/* Nav styles in header and footer */
+header, footer {
+  font-family: "Poiret One", sans-serif;
+  padding: 20px 0;
+}
+
+.clearfix {
+  overflow: auto;
+
+}
+
+ul.nav {
+  border-bottom: 2px dotted;
+}
+
+.nav li{
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.nav-right {
+  font: 16px "Lora";
+  float: right;
+  padding: 20px 5px;
+}
+
+.footer li {
+  display: inline-block;
+}
+
+.footer-right {
+  float: right;
+}
+
+/* Landing page styles */
+#pie-images {
+  padding: 50px 0;
+  margin: auto;
+}
+
+figure {
+  display: inline-block;
+  vertical-align: top;
+}
+
+figure img {
+  width: 80px;
+  height: 280px;
+  object-fit: cover;
+  overflow: hidden;
+  transition: width 300ms;
+}
+
+figure img:hover {
+  width: 280px;
+  /*transition-duration: 50ms;*/
+}
+
+figure h2 {
+  /*text-align: center;*/
+  color: #FFFFFF;
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+  padding-left: 10px;
+  /*float: left;*/
+
+}
+
+
+/* Flavor pages styles */
+h3.flavor {
+  font: 16px "Lora", serif;
+}
+
+/* Order-form styles */
+.form-group {
+  padding: 10px;
+}
+
+#qty.form-control {
+  width: 25px;
+  margin: 0 20px 0 0;
+  padding: 2px;
+}
+
+.required {
+  padding: 3px;
+  color: #FA787E;
+}
