@@ -9,10 +9,6 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         {
             templateUrl: '/views/login.html',
             controller: 'loginCtrl'
-        //}).when('/register',
-        //{
-        //    templateUrl: '/views/register.html',
-        //    controller: 'registerCtrl'
         }).when('/order',
         {
             templateUrl: '/views/order.html',
@@ -86,10 +82,16 @@ app.controller('navCtrl', ['$scope', '$rootScope', '$location', 'authService', f
 app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
 
     $scope.subTotal = function(total){
-        var calc = [];
-
-        $scope.total = calc;
-    }
+        $http({
+            method: 'GET',
+            url: '/pie',
+            data: total,
+            datatype: JSON
+        }).then(function(res){
+            console.log("Updating total:", res.data);
+            $scope.total = res.data;
+        })
+    };
 
     $scope.createOrder = function(order){
         console.log(order);
@@ -108,11 +110,11 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
 
 // Admin update orders
 app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
-    $scope.createOrder = function(order){
+    $scope.deleteOrder = function(order){
         console.log(order);
         $http({
-            method: 'POST',
-            url: '/order',
+            method: 'DELETE',
+            url: '/admin',
             data: order,
             datatype: JSON
         }).then(function(res){

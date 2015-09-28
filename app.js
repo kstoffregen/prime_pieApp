@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// Stripe API
-var stripe = require('stripe')("sk_test_9v622sKDA6OBuykCjzuPcEH9");
-
 var routes = require('./routes/index');
 var orders = require('./routes/orders');
 //var register = require('./routes/register');
@@ -59,6 +56,9 @@ app.use(function (err, req, res, next){
   }
 });
 
+//// Stripe API
+//var stripe = require('stripe')("sk_test_9v622sKDA6OBuykCjzuPcEH9");
+////stripe.setApiKey();
 
 app.use('/', routes);
 app.use('/order', orders);

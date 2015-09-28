@@ -2,15 +2,22 @@ doctype html
 html(ng-app="pieApp")
   head
     title= title
+    //readability
+    meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1")
     //styles
+    link(rel='stylesheet' href='/stylesheets/unsemantic.css')
     link(href='https://fonts.googleapis.com/css?family=Lora:400,700|Poiret+One|Open+Sans:400,700' rel='stylesheet' type='text/css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    //scripts
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    //scripts Angular
     script(src='https://code.jquery.com/jquery-2.1.4.min.js')
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js")
+    //scripts Stripe
+    script(src="https://js.stripe.com/v2/")
+
     script(src='/javascripts/app.js' type='text/javascript')
     base(href='/')
+
   body
     header
       div(class="clearfix" ng-contoller="navCtrl")
@@ -18,26 +25,10 @@ html(ng-app="pieApp")
         ul.nav
           li.nav-left
             h1= title
-          //li.nav-left(ng-hide="Order.phone")
-          //  a(href="/login") Login
-          //li.nav-left(ng-show="Order.phone")
-          //  a(ng-click="logout()" href="#") Logout
-          //li.nav-left(ng-show="Order.phone")
-          //  a(href="/admin") Admin
-          //li.nav-left(ng-show="Order.phone")
-          //  p Hello {{order.firstName}}!
-          //li(ng-hide="user.email")
-          //  a(href="/login") Login
-          //li(ng-show="user.email")
-          //  a(ng-click="logout()" href="#") Logout
-          //li(ng-show="user.email")
-          //  a(href="/admin") Admin
-          //li(ng-show="user.email")
-          //  p Hello {{user.firstName}}!
           li.nav-right
             a(href="/order") Order
           li.nav-right
-            a(href="/") Pies
+            a(href="/") Flavors
 
 
     block content
@@ -46,6 +37,8 @@ html(ng-app="pieApp")
       div(class="clearfix")
         ul.footer
           li.footer-left(id="copyright") &copy; 2015 NoCoast Pie Co.
+          li.footer-left
+            a(href="/login") Admin
           li.footer-right
             a(href="http://www.nocoastpie.com/") Web
           li.footer-right

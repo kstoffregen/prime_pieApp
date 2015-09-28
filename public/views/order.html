@@ -1,9 +1,9 @@
 <div class="container">
-    <h3>Thanksgiving Order Form</h3>
-    <form name="orderForm" ng-controller="orderCtrl" ng-submit="orderForm.$valid && createOrder(order)">
+    <h3 class="order-form">Thanksgiving Order Form</h3>
+    <form name="orderForm" ng-controller="orderCtrl" ng-submit="orderForm.$valid && createOrder(order)" class="clearfix">
         <div class="form-group">
-            <h4>Contact Information:</h4>
-            <div>
+            <h4>Contact Information</h4>
+            <div class="form-content">
                 <label>Full Name: </label>
                 <input type="text" ng-model="order.firstName" name="first" class="form-control" placeholder="First Name" required>
                 <input type="text" ng-model="order.lastName" name="last" class="form-control" placeholder="Last Name" required><span class="required">*</span>
@@ -11,21 +11,21 @@
             <!--<div role="alert">-->
                 <!--<span class="error" ng-show="orderForm.first.$error.required || orderForm.last.$error.required">Full Name Required</span>-->
             <!--</div>-->
-            <div>
+            <div class="form-content">
                 <label>Phone: </label>
                 <input type="tel" ng-model="order.phone" name="phone" class="form-control" placeholder="xxx-xxx-xxxx" required><span class="required">*</span>
                 <!--<div role="alert">-->
                     <!--<span class="error" ng-show="orderForm.phone.$error.required">Valid Phone Number Required</span>-->
                 <!--</div>-->
             </div>
-            <div>
+            <div class="form-content">
                 <label>Email: </label>
                 <input type="email" ng-model="order.email" name="email" class="form-control" placeholder="email@email.com" required><span class="required">*</span>
                 <!--<div role="alert">-->
                     <!--<span class="error" ng-show="orderForm.email.$error.required">Valid Email Required</span>-->
                 <!--</div>-->
             </div>
-            <div>
+            <div class="form-content">
                 <p>What's the best way for us to reach you?</p>
                 <label><input type="checkbox" ng-model="order.contactMethod.email">Email   </label>
                 <label><input type="checkbox" ng-model="order.contactMethod.call">Call   </label>
@@ -33,60 +33,95 @@
             </div>
         </div>
         <div class="form-group">
-            <h4>Pickup Date:</h4>
-            <select ng-model="order.pickup" name="pickup" required>
-                <option value="">-- Select Date --</option>
-                <option value="nov-24">Tuesday, November 24</option>
-                <option value="nov-25">Wednesday, November 25</option>
-            </select><span class="required">*</span>
-            <!--<div role="alert">-->
-                <!--<span class="error" ng-show="orderForm.pickup.$error.required">Pickup Date Required</span>-->
-            <!--</div>-->
-            <p>Pickups are located at the Norseman Distillery in NE Minneapolis from 3 - 7pm.</p>
-            <p>451 Taft St. NE, South Loading Dock</p>
-        </div>
-        <div class="form-group">
-            <h4>Place Order:</h4>
-            <p>Please enter desired quantities under each pie name and size.</p>
-            <div>
-                <h5>Apple Pie</h5>
-                9 inch, $24 each: <input type="number" ng-model="order.pie.apple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $9 each: <input type="number" ng-model="order.pie.apple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Chocolate Chess Pie</h5>
-                9 inch, $22 each: <input type="number" ng-model="order.pie.chocolate9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $8.50 each: <input type="number" ng-model="order.pie.chocolate6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Cranberry Chess Pie</h5>
-                9 inch, $22 each: <input type="number" ng-model="order.pie.cranberry9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $8.50 each: <input type="number" ng-model="order.pie.cranberry6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Maple Oatmeal Breakfast Pie</h5>
-                9 inch, $24 each: <input type="number" ng-model="order.pie.maple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $9 each: <input type="number" ng-model="order.pie.maple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Pear Apple Cranberry Pie</h5>
-                9 inch, $24 each: <input type="number" ng-model="order.pie.pear9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $9 each: <input type="number" ng-model="order.pie.pear6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Pecan Rum Maple Pie</h5>
-                9 inch, $24 each: <input type="number" ng-model="order.pie.pecan9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $9 each: <input type="number" ng-model="order.pie.pecan6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-            </div>
-            <div>
-                <h5>Pumpkin Pie</h5>
-                9 inch, $21 each: <input type="number" ng-model="order.pie.pumpkin9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
-                6 inch, $8 each: <input type="number" ng-model="order.pie.pumpkin6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">
+            <h4>Pickup Date</h4>
+            <div class="form-content">
+                <select ng-model="order.pickup" name="pickup" class="form-control" required>
+                    <option value="">-- Select Date --</option>
+                    <option value="nov-24">Tuesday, November 24</option>
+                    <option value="nov-25">Wednesday, November 25</option>
+                </select><span class="required">*</span>
+                <!--<div role="alert">-->
+                    <!--<span class="error" ng-show="orderForm.pickup.$error.required">Pickup Date Required</span>-->
+                <!--</div>-->
+                <p>Pickups are located at the Norseman Distillery in NE Minneapolis from 3 - 7pm.</p>
+                <p>451 Taft St. NE, South Loading Dock</p>
             </div>
         </div>
         <div class="form-group">
+            <h4>Place Order</h4>
+            <div class="form-content">
+                <p>Please enter desired quantities under each pie name and size.</p>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Apple Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.apple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $24 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.apple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $9 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Chocolate Chess Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.chocolate9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $22 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.chocolate6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $8.50 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Cranberry Chess Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.cranberry9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $22 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.cranberry6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $8.50 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Maple Oatmeal Breakfast Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.maple9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $24 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.maple6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $9 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Pear Apple Cranberry Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pear9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $24 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pear6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $9 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Pecan Rum Maple Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pecan9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $24 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pecan6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $9 each
+                    </span>
+                </div>
+                <div class="grid-container" id="form-pie">
+                    <h5 class="grid-40 mobile-grid-100">Pumpkin Pie</h5>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pumpkin9" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">9 inch, $21 each
+                    </span>
+                    <span class="grid-30 mobile-grid-50">
+                        <input type="number" ng-model="order.pie.pumpkin6" ng-change="subTotal()" name="pie" class="form-control" id="qty" min="0">6 inch, $8 each
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="total">
             <p>{{total}}</p>
             <h5>Total: $<p>{{total}}</p></h5>
+
+        </div>
+        <div id="form-submit">
             <input type="submit" value="Submit">
         </div>
     </form>
