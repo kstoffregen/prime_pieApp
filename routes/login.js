@@ -4,7 +4,7 @@ var express = require('express'),
 
 router.post('/', function (req, res, next) {
     if (req.body.username === process.env.USERNAME && req.body.password === process.env.PASSWORD) {
-        var token = jwt.sign({ username: process.env.USERNAME }, 'supersecret', {expiresInMinutes:1440 });
+        var token = jwt.sign({ username: process.env.USERNAME }, 'supersecret', {expiresInMinutes:1440});
         res.send(token);
 
     } else {

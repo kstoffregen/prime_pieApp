@@ -78,7 +78,6 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
 // Admin controllers - Login and update
 app.controller('loginCtrl', ['$scope', '$rootScope', '$http', '$location', 'authService', function($scope, $rootScope, $http, $location, authService){
     $scope.submit = function() {
-        console.log($scope.form);
         $http.post('/login', $scope.form)
             .then(function (response) {
                 authService.saveToken(response.data);
@@ -90,16 +89,21 @@ app.controller('loginCtrl', ['$scope', '$rootScope', '$http', '$location', 'auth
 
 app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
     $scope.updateList = function(){
-        console.log(orders);
         $http({
             method: 'GET',
-            url: '/admin',
-            datatype: JSON
+            url: '/admin/log'
         }).then(function(res){
-            console.log(res);
-            $scope.order = res.data;
-        })
+            $scope.items = res.data;
+            console.log($scope.items);
+        });
+        $scope.predicate = 'lastName';
+        $scope.reverse = true;
+        $scope.order = function(predicate){
+            $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+            $scope.predicate = predicate;
+        }
     };
+
 }]);
 
 // Services for authentication
