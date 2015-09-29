@@ -1,5 +1,8 @@
-<p>Hey, boss! This is the PRIVATE order log.</p>
+<div ng-controller="AdminCtrl">
+    <h3>You've got orders to fill!</h3>
+    <button ng-click="updateList()">Update List</button>
 
-<div ng-repeat="order in orders">
-    <p>{{order in orders}}</p>
+    <div ng-repeat="order in orders">
+        <p>{{order in orders}}</p>
+    </div>
 </div>

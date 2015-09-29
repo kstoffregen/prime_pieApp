@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/private',express.static(path.join(__dirname, 'private')));
 
 //Mongoose connection
 var mongoose = require('mongoose');

@@ -1,16 +1,15 @@
 var express = require('express'),
     router = express.Router(),
-    Orders = require('../models/order');
+    jwt = require('jsonwebtoken');
 
-router.post('/', function(req, res, next) {
-    Orders.getAuthenticated(req.body, function(err, token) {
-        if (err) {
-            console.log(err.message);
-            res.status(400).send(err.message);
-        } else {
-            res.send(token);
-        }
-    });
+router.post('/', function (req, res, next) {
+    if (req.body.username === process.env.USERNAME && req.body.password === process.env.PASSWORD) {
+        var token = jwt.sign({ username: process.env.USERNAME }, 'supersecret', {expiresInMinutes:1440 });
+        res.send(token);
+
+    } else {
+        res.send(400);
+    }
 });
 
 module.exports = router;

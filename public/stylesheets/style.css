@@ -80,7 +80,7 @@ ul.nav {
 }
 
 /* Landing page styles */
-@media only screen and (max-width: 735px) {
+@media (max-width: 735px) {
   #pie-images {
     transform: rotate(90deg);
   }
@@ -204,7 +204,7 @@ select.form-control {
   display: inline-block;
 }
 
-#total h5 {
+#total h4 {
   font-size: 14px;
   text-align: right;
 }
@@ -234,8 +234,3 @@ select.form-control {
   position:relative;
   top:1px;
 }
-
-/* Login style */
-/*#login-submit {*/
-  /**/
-/*}*/

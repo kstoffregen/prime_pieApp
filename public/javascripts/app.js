@@ -45,50 +45,17 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
     $httpProvider.interceptors.push('authInterceptor');
 }]);
 
-// User controllers
-//app.controller('registerCtrl', ['$scope', '$http', function($scope, $http){
-//    $scope.submit = function() {
-//        $http.post('/register', $scope.form)
-//            .then(function (response) {
-//                console.log(response);
-//            });
-//    };
-//}]);
-
-app.controller('loginCtrl', ['$scope', '$rootScope', '$http', '$location', 'authService', function($scope, $http, authService, $location, $rootScope){
-    $scope.submit = function() {
-        $http.post('/login', $scope.order)
-            .then(function (response) {
-                authService.saveToken(response.data);
-                $rootScope.order = authService.getUser();
-                $location.path("/admin");
-            });
-    };
-}]);
-
-app.controller('navCtrl', ['$scope', '$rootScope', '$location', 'authService', function($scope, authService, $location, $rootScope){
-    $rootScope.order = authService.getUser();
-    if($rootScope.order && $rootScope.order.phone){
-        $location.path('/admin');
-    }
-    $scope.logout = function(){
-        authService.logout();
-        $rootScope.order = authService.getUser();
-        $location.path("/login");
-    }
-}]);
-
 // Place order
 app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
-
-    $scope.subTotal = function(total){
+    $scope.total = 0.00;
+    $scope.subTotal = function(){
         $http({
-            method: 'GET',
+            method: 'POST',
             url: '/pie',
-            data: total,
+            data: $scope.order.pie,
             datatype: JSON
         }).then(function(res){
-            console.log("Updating total:", res.data);
+            console.log("Updating total:", res);
             $scope.total = res.data;
         })
     };
@@ -108,17 +75,28 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
 
 }]);
 
-// Admin update orders
+// Admin controllers - Login and update
+app.controller('loginCtrl', ['$scope', '$rootScope', '$http', '$location', 'authService', function($scope, $rootScope, $http, $location, authService){
+    $scope.submit = function() {
+        console.log($scope.form);
+        $http.post('/login', $scope.form)
+            .then(function (response) {
+                authService.saveToken(response.data);
+                $rootScope.order = authService.getUser();
+                $location.path("/admin");
+            });
+    };
+}]);
+
 app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
-    $scope.deleteOrder = function(order){
-        console.log(order);
+    $scope.updateList = function(){
+        console.log(orders);
         $http({
-            method: 'DELETE',
+            method: 'GET',
             url: '/admin',
-            data: order,
             datatype: JSON
         }).then(function(res){
-            console.log(res.data);
+            console.log(res);
             $scope.order = res.data;
         })
     };
