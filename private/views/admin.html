@@ -1,35 +1,48 @@
 <div ng-controller="adminCtrl">
-    <h3>You've got orders to fill!</h3>
-    <button id="submit-button" ng-click="updateList()">Update List</button>
+    <div class="grid-container" id="2box">
+        <div class="grid-50">
+            <label>Search: <input class="form-control" ng-model="searchText"></label>
+        </div>
+        <div class="grid-50">
+            <button id="submit-button" ng-click="updateList()">Update Order List</button>
+        </div>
+    </div>
 
-    <table class="log">
-        <tr>
-            <th>
-                <a href="" ng-click="order('lastName')">Name</a>
-                <span class="sortorder" ng-show="predicate ==='lastName'" ng-class="{reverse:reverse}"></span>
-            </th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
-            <th>Contact Method</th>
-            <th>Order</th>
-            <th>
+    <div class="admin-log">
+        <div class="grid-container" id="row-header">
+            <div class="grid-20">
                 <a href="" ng-click="order('pickup')">Pickup Date</a>
                 <span class="sortorder" ng-show="predicate === 'pickup'" ng-class="{reverse:reverse}"></span>
-            </th>
-            <th>
-                <a href="" ng-click="order('created_at')">Order Submitted</a>
-                <span class="sortorder" ng-show="predicate === 'created_at'" ng-class="{reverse:reverse}"></span>
-            </th>
-        </tr>
-        <tr ng-repeat="item in items | orderBy:predicate:reverse">
-            <td>{{item.firstName + " " + item.lastName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.phone}}</td>
-            <td>{{item.contactMethod}}</td>
-            <td>{{item.pie}}</td>
-            <td>{{item.pickup}}</td>
-            <td>{{item.created_at}}</td>
-        </tr>
-    </table>
+            </div>
+            <div class="grid-30">
+                <a href="" ng-click="order('lastName')">Name</a>
+                <span class="sortorder" ng-show="predicate ==='lastName'" ng-class="{reverse:reverse}"></span>
+            </div>
+            <!--<th>Email Address</th>-->
+            <!--<th>Phone Number</th>-->
+            <!--<th>Contact Method</th>-->
+            <div class="grid-40">Order</div>
+            <div class="grid-5"></div>
+            <div class="grid-5"></div>
+            <!--<th>-->
+                <!--<a href="" ng-click="order('created_at')">Order Submitted</a>-->
+                <!--<span class="sortorder" ng-show="predicate === 'created_at'" ng-class="{reverse:reverse}"></span>-->
+            <!--</th>-->
+        </div>
+        <div class="grid-container" id="row-content" ng-repeat="item in items | orderBy:predicate:reverse | filter:searchText">
+            <div class="grid-20">{{item.pickup}}</div>
+            <div class="grid-30 grid-parent">{{item.firstName + " " + item.lastName}}
+                <div class="grid-100">{{item.phone}}</div>
+                <div class="grid-100">{{item.email}}</div>
+                <div class="grid-100">{{item.contactMethod}}</div>
+            </div>
+            <div class="grid-50">{{item.pie}}</div>
+            <div class="grid-5"><button ng-click="markOrder()">Mark</button></div>
+            <div class="grid-5"><button ng-click="deleteOrder()">Delete</button></div>
+        </div>
+    </div>
 
+
+
+    <!--<td>{{item.created_at | date:'MM/dd/yyyy @ h:mma'}}</td>-->
 </div>

@@ -70,7 +70,8 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
         }).then(function(res){
             console.log(res.data);
             $scope.order = res.data;
-        })
+        });
+        $setPristine(orderForm);
     };
 
 }]);
@@ -96,6 +97,23 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
             $scope.items = res.data;
             console.log($scope.items);
         });
+
+
+        if($scope.items.contactMethod.email == true){
+            $scope.items.contactMethod = 'Email'
+        } else if ($scope.items.contactMethod.text == true){
+            $scope.items.contactMethod = 'Text'
+        } else if ($scope.items.contactMethod.call == true){
+            $scope.items.contactMethod = 'Call'
+        }
+        //if($scope.items.contactMethod.email == true){
+        //    $scope.items.contactMethod = 'Email'
+        //} else if ($scope.items.contactMethod.text == true){
+        //    $scope.items.contactMethod = 'Text'
+        //} else if ($scope.items.contactMethod.call == true){
+        //    $scope.items.contactMethod = 'Call'
+        //}
+
         $scope.predicate = 'lastName';
         $scope.reverse = true;
         $scope.order = function(predicate){
@@ -103,6 +121,10 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
             $scope.predicate = predicate;
         }
     };
+
+    $scope.markOrder = function(){};
+
+    $scope.deleteOrder = function(){};
 
 }]);
 

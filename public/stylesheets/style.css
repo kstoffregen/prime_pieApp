@@ -80,41 +80,49 @@ ul.nav {
 }
 
 /* Landing page styles */
-@media (max-width: 735px) {
-  #pie-images {
-    transform: rotate(90deg);
-  }
+
+#pie.mobile-grid-50 {
+  padding: 0;
 }
 
-#pie-images {
-  padding: 50px 0;
-}
-
-.pie {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.pie img {
-  width: 70px;
-  height: 280px;
+#pie img {
+  width: 248px;
+  height: 248px;
   object-fit: cover;
   overflow: hidden;
-  transition: width 300ms;
 }
 
-.pie img:hover {
-  width: 248px;
-  /*transition-duration: 50ms;*/
-}
+@media (min-width: 735px) {
+  #pie-images {
+    padding: 50px 0;
+    text-align: center;
+  }
 
-.pie h2 {
-  text-align: center;
-  font-size: 16px;
-  /*color: #FFFFFF;*/
-  /*transform: rotate(270deg);*/
-  /*transform-origin: left top 0;*/
-  /*padding-left: 10px;*/
+  #pie {
+    display: inline-block;
+    vertical-align: top;
+    transition: width;
+  }
+
+  #pie img {
+    width: 70px;
+    height: 280px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  #pie:hover img {
+    width: 248px;
+  }
+
+  #pie h2 {
+    text-align: center;
+    font-size: 16px;
+    /*color: #FFFFFF;*/
+    /*transform: rotate(270deg);*/
+    /*transform-origin: left top 0;*/
+    /*padding-left: 10px;*/
+  }
 }
 
 /* Flavor pages styles */
@@ -123,12 +131,10 @@ h3.flavor {
 }
 
 .slice img {
-
-
-}
-
-#flavor-page {
-  padding-left: 25px;
+  margin-top: 20px;
+  border: 2px solid #75B2F2;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .flavor-content {
@@ -205,13 +211,12 @@ select.form-control {
 }
 
 #total h4 {
-  font-size: 14px;
-  text-align: right;
+  font-size: 16px;
+  text-align: center;
 }
 
-#form-submit #submit-button {
-  margin: 0 20px 20px;
-  float: right;
+#2box {
+  display: inline;
 }
 
 #submit-button {
@@ -235,4 +240,8 @@ select.form-control {
   outline: none;
   position:relative;
   top:1px;
+}
+/* Admin page styles */
+.admin-log {
+  margin-top: 20px;
 }
