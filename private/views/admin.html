@@ -31,12 +31,14 @@
         </div>
         <div class="grid-container" id="row-content" ng-repeat="item in items | orderBy:predicate:reverse | filter:searchText">
             <div class="grid-20">{{item.pickup}}</div>
-            <div class="grid-30 grid-parent">{{item.firstName + " " + item.lastName}}
-                <div class="grid-100">{{item.phone}}</div>
-                <div class="grid-100">{{item.email}}</div>
-                <div class="grid-100">{{item.contactMethod}}</div>
+            <div class="grid-30 grid-parent"><button id="open-button" ng-click="contactOpen = !contactOpen">+</button>{{item.firstName + " " + item.lastName}}
+                <div id="contact-open" ng-init="contactOpen = false" ng-show="contactOpen">
+                    <div class="grid-100">{{item.phone}}</div>
+                    <div class="grid-100">{{item.email}}</div>
+                    <div class="grid-100">{{item.contactMethod}}</div>
+                </div>
             </div>
-            <div class="grid-50">{{item.pie}}</div>
+            <div class="grid-50">{{item.pieOrder}}</div>
             <div class="grid-5"><button ng-click="markOrder()">Mark</button></div>
             <div class="grid-5"><button ng-click="deleteOrder()">Delete</button></div>
         </div>

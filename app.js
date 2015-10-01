@@ -11,6 +11,7 @@ var orders = require('./routes/orders');
 var login = require('./routes/login');
 var pie = require('./routes/pies');
 var admin = require('./routes/admin');
+var adminpie = require('./routes/adminpie');
 
 var app = express();
 
@@ -68,6 +69,7 @@ app.use('/order', orders);
 app.use('/login', login);
 app.use('/pie', pie);
 app.use('/admin', admin);
+app.use('/adminpie', adminpie);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

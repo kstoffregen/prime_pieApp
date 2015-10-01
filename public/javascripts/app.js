@@ -1,4 +1,4 @@
-var app = angular.module('pieApp', ['ngRoute']);
+var app = angular.module('pieApp', ['ngRoute', 'checklist-model']);
 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
     $locationProvider.html5Mode(true);
@@ -62,6 +62,7 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
 
     $scope.createOrder = function(order){
         console.log(order);
+
         $http({
             method: 'POST',
             url: '/order',
@@ -71,7 +72,6 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
             console.log(res.data);
             $scope.order = res.data;
         });
-        $setPristine(orderForm);
     };
 
 }]);
@@ -97,30 +97,22 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
             $scope.items = res.data;
             console.log($scope.items);
         });
-
-
-        if($scope.items.contactMethod.email == true){
-            $scope.items.contactMethod = 'Email'
-        } else if ($scope.items.contactMethod.text == true){
-            $scope.items.contactMethod = 'Text'
-        } else if ($scope.items.contactMethod.call == true){
-            $scope.items.contactMethod = 'Call'
-        }
-        //if($scope.items.contactMethod.email == true){
-        //    $scope.items.contactMethod = 'Email'
-        //} else if ($scope.items.contactMethod.text == true){
-        //    $scope.items.contactMethod = 'Text'
-        //} else if ($scope.items.contactMethod.call == true){
-        //    $scope.items.contactMethod = 'Call'
-        //}
-
+        $http({
+            method: 'POST',
+            url: '/adminpie/log',
+            data: $scope.item.pie,
+            datatype: JSON
+        }).then(function(res){
+            $scope.item.pieOrder = res.data;
+        });
         $scope.predicate = 'lastName';
         $scope.reverse = true;
         $scope.order = function(predicate){
             $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
             $scope.predicate = predicate;
-        }
+        };
     };
+
 
     $scope.markOrder = function(){};
 

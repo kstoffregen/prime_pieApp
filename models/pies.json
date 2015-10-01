@@ -1,85 +1,71 @@
 [
   {
-    "flavor":"Apple Pie",
-    "size":"9 inch",
+    "title":"Apple Pie - 9 inch",
     "price":24,
     "id":"apple9"
   },
   {
-    "flavor":"Apple Pie",
-    "size":"6 inch",
+    "title":"Apple Pie - 6 inch",
     "price":9,
     "id":"apple6"
   },
   {
-    "flavor":"Chocolate Chess Pie",
-    "size":"9 inch",
+    "title":"Chocolate Chess Pie - 9 inch",
     "price":22,
     "id":"chocolate9"
   },
   {
-    "flavor":"Chocolate Chess Pie",
-    "size":"6 inch",
+    "title":"Chocolate Chess Pie - 6 inch",
     "price":8.5,
     "id":"chocolate6"
   },
   {
-    "flavor":"Cranberry Chess Pie",
-    "size":"9 inch",
+    "title":"Cranberry Chess Pie - 9 inch",
     "price":22,
     "id":"cranberry9"
   },
   {
-    "flavor":"Cranberry Chess Pie",
-    "size":"6 inch",
+    "title":"Cranberry Chess Pie - 6 inch",
     "price":8.5,
     "id":"cranberry6"
   },
   {
-    "flavor":"Maple Oatmeal Breakfast Pie",
-    "size":"9 inch",
+    "title":"Maple Oatmeal Breakfast Pie - 9 inch",
     "price":24,
     "id":"maple9"
   },
   {
-    "flavor":"Maple Oatmeal Breakfast Pie",
-    "size":"6 inch",
+    "title":"Maple Oatmeal Breakfast Pie - 6 inch",
     "price":9,
     "id":"maple6"
   },
   {
-    "flavor":"Pear Apple Cranberry Pie",
-    "size":"9 inch",
+    "title":"Pear Apple Cranberry Pie - 9 inch",
     "price":24,
     "id":"pear9"
   },
   {
-    "flavor":"Pear Apple Cranberry Pie",
-    "size":"6 inch",
+    "title":"Pear Apple Cranberry Pie - 6 inch",
     "price":9,
     "id":"pear6"
   },
   {
-    "flavor":"Pecan Rum Maple Pie",
-    "size":"9 inch",
+    "title":"Pecan Rum Maple Pie - 9 inch",
     "price":24,
     "id":"pecan9"
   },
   {
-    "flavor":"Pecan Rum Maple Pie",
-    "size":"6 inch",
+    "title":"Pecan Rum Maple Pie - 6 inch",
     "price":9,
     "id":"pecan6"
   },
   {
-    "flavor":"Pumpkin Pie",
-    "size":"9 inch",
+    "title":"Pumpkin Pie - 9 inch",
     "price":21,
     "id":"pumpkin9"
   },
   {
-    "flavor":"Pumpkin Pie",
-    "size":"6 inch",
+    "title":"Pumpkin Pie - 6 inch",
     "price":8,
     "id":"pumpkin6"
   }

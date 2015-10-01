@@ -1,23 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var Order = require('../models/order');
-var pie = require('../models/pies.json');
 
 /* GET list of orders */
 router.get('/log', function(req, res, next){
-    Order.find(function(err, log){
+    Order.find(function(err, order){
         if(err){
             console.log(err)
         } else {
-
-            //makePrettyPies();
-
-            res.json(log);
-            console.log(log);
+            res.json(order);
         }
     });
-
 });
+
+
+
 
 //router.delete('/', function(){
 //
