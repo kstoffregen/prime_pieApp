@@ -35,12 +35,12 @@
                 <div id="contact-open" ng-init="contactOpen = false" ng-show="contactOpen">
                     <div class="grid-100">{{item.phone}}</div>
                     <div class="grid-100">{{item.email}}</div>
-                    <div class="grid-100">{{item.contactMethod}}</div>
+                    <div ng-repeat="(key, value) in item.contactMethod" class="grid-100">*{{key}}</div>
                 </div>
             </div>
-            <div class="grid-50">{{item.pieOrder}}</div>
-            <div class="grid-5"><button ng-click="markOrder()">Mark</button></div>
-            <div class="grid-5"><button ng-click="deleteOrder()">Delete</button></div>
+            <div ng-repeat="(key, value) in item.pie" class="grid-50">{{key}}, {{value}}</div>
+            <!--<div class="grid-5"><button ng-click="markOrder()">Mark</button></div>-->
+            <!--<div class="grid-5"><button ng-click="deleteOrder()">Delete</button></div>-->
         </div>
     </div>
 

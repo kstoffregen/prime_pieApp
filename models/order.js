@@ -30,7 +30,8 @@ var orderSchema = new schema ({
         pumpkin6: Number
     },
     request: { type: String },
-    created_at: { type: Date, default: Date.now }
+    created_at: { type: Date, default: Date.now },
+    pieOrder: {type: Array, default: []}
 });
 
 var Order = mongoose.model('Order', orderSchema);

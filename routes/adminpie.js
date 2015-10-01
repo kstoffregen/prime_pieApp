@@ -5,6 +5,8 @@ var Pie = require('../models/pies.json');
 
 function makePrettyPies(order){
     var pieOrder = [];
+    console.log('inside makeprettypie');
+    console.log(order[1].pie);
     order.forEach(function(item, index){
         var customer = [];
         Pie.forEach(function (elem){
@@ -15,30 +17,24 @@ function makePrettyPies(order){
         });
         pieOrder.push(customer);
     });
+    console.log(pieOrder);
     return pieOrder;
 }
 
-/* GET list of orders */
-router.post('/log', function(req, res, next){
-    Order.forEach(function(err, order, pieOrder){
-        if(err){
-            console.log(err)
-        } else {
-            console.log('in get else');
-            makePrettyPies(order);
-            res.json(pieOrder);
-        }
-    });
-});
+/* POST pretty pie display */
+router.post('/log', function(req, res){
+    console.log(req.body);
+    var orders = req.body;
+    res.json(makePrettyPies(orders));
+        //if(err){
+        //    console.log(err)
+        ////} else {
+        //    console.log('in get else');
+        //    makePrettyPies(order);
+        //    res.json(pieOrder);
 
-/* POST complete pie info */
-//router.post('/log', function(req, res, next){
-//    Order.update(req.body[elem.id], pieOrder, function(){
-//        makePrettyPies(req, res, order);
-//    });
-//
-//
-//});
+
+});
 
 
 

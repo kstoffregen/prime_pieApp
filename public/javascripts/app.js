@@ -93,18 +93,24 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
         $http({
             method: 'GET',
             url: '/admin/log'
-        }).then(function(res){
+        }).then(function(res) {
             $scope.items = res.data;
             console.log($scope.items);
+            console.log("TEST", $scope.items.pie.key);
+        //}).then(function(){
+        //    $http({
+        //        method: 'POST',
+        //        url: '/adminpie/log',
+        //        data: $scope.items,
+        //        datatype: JSON
+        //    }).then(function(res){
+        //        $scope.items.pieOrder = res.data;
+        //        console.log(res.data);
+        //    });
         });
-        $http({
-            method: 'POST',
-            url: '/adminpie/log',
-            data: $scope.item.pie,
-            datatype: JSON
-        }).then(function(res){
-            $scope.item.pieOrder = res.data;
-        });
+
+
+
         $scope.predicate = 'lastName';
         $scope.reverse = true;
         $scope.order = function(predicate){
