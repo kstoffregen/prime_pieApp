@@ -156,15 +156,16 @@ h3.flavor {
 }
 
 /* Order-form styles */
-.order-form {
-  margin-left: 50px;
+.order-container {
+  margin: 0px 50px;
 }
 
 form {
-  margin: 20px 50px 100px;
+  margin: 20px auto 100px;
   border-radius: 15px;
   border: 3px solid #888888;
   background-color: #A59E91;
+  max-width: 800px;
 }
 
 .form-group {
@@ -252,6 +253,11 @@ select.form-control {
   position:relative;
   top:1px;
 }
+
+#form-submit {
+  margin-bottom: 20px;
+}
+
 
 /* Admin page styles */
 .admin-log {
