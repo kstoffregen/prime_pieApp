@@ -2,71 +2,71 @@
   {
     "title":"Apple Pie - 9 inch",
     "price":24,
-    "id":"apple9"
+    "id":"Apple9"
   },
   {
     "title":"Apple Pie - 6 inch",
     "price":9,
-    "id":"apple6"
+    "id":"Apple6"
   },
   {
     "title":"Chocolate Chess Pie - 9 inch",
     "price":22,
-    "id":"chocolate9"
+    "id":"Chocolate9"
   },
   {
     "title":"Chocolate Chess Pie - 6 inch",
     "price":8.5,
-    "id":"chocolate6"
+    "id":"Chocolate6"
   },
   {
     "title":"Cranberry Chess Pie - 9 inch",
     "price":22,
-    "id":"cranberry9"
+    "id":"Cranberry9"
   },
   {
     "title":"Cranberry Chess Pie - 6 inch",
     "price":8.5,
-    "id":"cranberry6"
+    "id":"Cranberry6"
   },
   {
     "title":"Maple Oatmeal Breakfast Pie - 9 inch",
     "price":24,
-    "id":"maple9"
+    "id":"Maple9"
   },
   {
     "title":"Maple Oatmeal Breakfast Pie - 6 inch",
     "price":9,
-    "id":"maple6"
+    "id":"Maple6"
   },
   {
     "title":"Pear Apple Cranberry Pie - 9 inch",
     "price":24,
-    "id":"pear9"
+    "id":"Pear9"
   },
   {
     "title":"Pear Apple Cranberry Pie - 6 inch",
     "price":9,
-    "id":"pear6"
+    "id":"Pear6"
   },
   {
     "title":"Pecan Rum Maple Pie - 9 inch",
     "price":24,
-    "id":"pecan9"
+    "id":"Pecan9"
   },
   {
     "title":"Pecan Rum Maple Pie - 6 inch",
     "price":9,
-    "id":"pecan6"
+    "id":"Pecan6"
   },
   {
     "title":"Pumpkin Pie - 9 inch",
     "price":21,
-    "id":"pumpkin9"
+    "id":"Pumpkin9"
   },
   {
     "title":"Pumpkin Pie - 6 inch",
     "price":8,
-    "id":"pumpkin6"
+    "id":"Pumpkin6"
   }
 ]

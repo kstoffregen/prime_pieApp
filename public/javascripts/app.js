@@ -38,15 +38,18 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         {
             templateUrl: 'private/views/admin.html',
             controller: 'adminCtrl'
+        }).when('/receipt',
+        {
+            templateUrl: '/views/receipt.html'
         }).otherwise({
-            redirectTo: '/views/index.html'
+            redirectTo: '/'
         });
 
     $httpProvider.interceptors.push('authInterceptor');
 }]);
 
 // Place order
-app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('orderCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $scope.total = 0.00;
     $scope.subTotal = function(){
         $http({
@@ -71,6 +74,7 @@ app.controller('orderCtrl', ['$scope', '$http', function($scope, $http){
         }).then(function(res){
             console.log(res.data);
             $scope.order = res.data;
+            $location.path('/receipt');
         });
     };
 
@@ -96,7 +100,7 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
         }).then(function(res) {
             $scope.items = res.data;
             console.log($scope.items);
-            console.log("TEST", $scope.items.pie.key);
+
         //}).then(function(){
         //    $http({
         //        method: 'POST',
@@ -109,8 +113,6 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
         //    });
         });
 
-
-
         $scope.predicate = 'lastName';
         $scope.reverse = true;
         $scope.order = function(predicate){
@@ -119,10 +121,9 @@ app.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
         };
     };
 
+    $scope.completedOrder = function(){
 
-    $scope.markOrder = function(){};
-
-    $scope.deleteOrder = function(){};
+    };
 
 }]);
 

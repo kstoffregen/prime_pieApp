@@ -1,4 +1,4 @@
-<div ng-controller="adminCtrl">
+<div ng-controller="adminCtrl" class="admin-container">
     <div class="grid-container" id="2box">
         <div class="grid-50">
             <label>Search: <input class="form-control" ng-model="searchText"></label>
@@ -10,7 +10,7 @@
 
     <div class="admin-log">
         <div class="grid-container" id="row-header">
-            <div class="grid-20">
+            <div class="grid-25">
                 <a href="" ng-click="order('pickup')">Pickup Date</a>
                 <span class="sortorder" ng-show="predicate === 'pickup'" ng-class="{reverse:reverse}"></span>
             </div>
@@ -18,19 +18,16 @@
                 <a href="" ng-click="order('lastName')">Name</a>
                 <span class="sortorder" ng-show="predicate ==='lastName'" ng-class="{reverse:reverse}"></span>
             </div>
-            <!--<th>Email Address</th>-->
-            <!--<th>Phone Number</th>-->
-            <!--<th>Contact Method</th>-->
             <div class="grid-40">Order</div>
-            <div class="grid-5"></div>
-            <div class="grid-5"></div>
+            <div class="grid-5">  </div>
+
             <!--<th>-->
                 <!--<a href="" ng-click="order('created_at')">Order Submitted</a>-->
                 <!--<span class="sortorder" ng-show="predicate === 'created_at'" ng-class="{reverse:reverse}"></span>-->
             <!--</th>-->
         </div>
         <div class="grid-container" id="row-content" ng-repeat="item in items | orderBy:predicate:reverse | filter:searchText">
-            <div class="grid-20">{{item.pickup}}</div>
+            <div class="grid-25">{{item.pickup}}</div>
             <div class="grid-30 grid-parent"><button id="open-button" ng-click="contactOpen = !contactOpen">+</button>{{item.firstName + " " + item.lastName}}
                 <div id="contact-open" ng-init="contactOpen = false" ng-show="contactOpen">
                     <div class="grid-100">{{item.phone}}</div>
@@ -38,9 +35,10 @@
                     <div ng-repeat="(key, value) in item.contactMethod" class="grid-100">*{{key}}</div>
                 </div>
             </div>
-            <div ng-repeat="(key, value) in item.pie" class="grid-50">{{key}}, {{value}}</div>
-            <!--<div class="grid-5"><button ng-click="markOrder()">Mark</button></div>-->
-            <!--<div class="grid-5"><button ng-click="deleteOrder()">Delete</button></div>-->
+            <div class="grid-45 grid-parent">
+                <div ng-repeat="(key, value) in item.pie" id="admin-pie-list">{{key}}, qty {{value}}</div>
+                    <!--<button id="complete-button" ng-click="completedOrder()">Complete</button></div>-->
+            </div>
         </div>
     </div>
 

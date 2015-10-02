@@ -3,13 +3,12 @@
   border: 0px;
   margin: 0px;
   font-size: 0px
-font: inherit;
+  font: inherit;
 }
 
 /* General styles */
 body {
   margin: auto;
-  padding: 50px;
   font: 16px "Lora", "Open Sans", Helvetica, sans-serif;
   color: #444444;
 }
@@ -37,7 +36,6 @@ h3 {
 header, footer {
   font-family: "Poiret One", sans-serif;
   color: #0050A5;
-  padding: 20px 0;
 }
 
 .clearfix {
@@ -45,6 +43,7 @@ header, footer {
 }
 
 ul.nav {
+  padding: 50px 50px 0;
   border-bottom: 2px dotted;
 }
 
@@ -80,7 +79,6 @@ ul.nav {
 }
 
 /* Landing page styles */
-
 #pie.mobile-grid-50 {
   padding: 0;
 }
@@ -126,15 +124,27 @@ ul.nav {
 }
 
 /* Flavor pages styles */
+.flavor-container {
+  padding: 20px;
+}
+
+.flavor-container .form-group {
+  padding: 10px 20px;
+  max-width: 500px;
+}
+
 h3.flavor {
   font: 16px "Lora", serif;
 }
 
+.slice {
+  margin: 20px;
+  text-align: center;
+}
+
 .slice img {
-  margin-top: 20px;
   border: 2px solid #75B2F2;
   border-radius: 10px;
-  text-align: center;
 }
 
 .flavor-content {
@@ -210,7 +220,8 @@ select.form-control {
   display: inline-block;
 }
 
-#total h4 {
+#total.form-group {
+  margin: 0px 0px 20px;
   font-size: 16px;
   text-align: center;
 }
@@ -266,4 +277,34 @@ select.form-control {
 
 #contact-open {
   padding-left: 20px;
+}
+
+/* Receipt page */
+#receipt {
+  margin: 100px auto;
+  padding: 50px;
+  width: 450px;
+  border: 2px solid #75B2F2;
+  border-radius: 10px;
+  background-color: #F2E3CA;
+  text-align: center;
+  line-height: 30px;
+}
+
+#receipt p {
+  line-height: 20px;
+}
+
+#complete-button {
+  float: right;
+  margin-right: 20px;
+  padding: 0px 2px;
+  border: 2px solid #75B2F2;
+  border-radius: 5px;
+  background-color: #F2E3CA;
+  font: 12px "Lora", serif;
+}
+
+.admin-container {
+  padding: 50px;
 }

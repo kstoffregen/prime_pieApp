@@ -14,24 +14,24 @@ var orderSchema = new schema ({
     },
     pickup: { type: String, required: true },
     pie: {
-        apple9: Number,
-        apple6: Number,
-        chocolate9: Number,
-        chocolate6: Number,
-        cranberry9: Number,
-        cranberry6: Number,
-        maple9: Number,
-        maple6: Number,
-        pear9: Number,
-        pear6: Number,
-        pecan9: Number,
-        pecan6: Number,
-        pumpkin9: Number,
-        pumpkin6: Number
+        Apple9: Number,
+        Apple6: Number,
+        Chocolate9: Number,
+        Chocolate6: Number,
+        Cranberry9: Number,
+        Cranberry6: Number,
+        Maple9: Number,
+        Maple6: Number,
+        Pear9: Number,
+        Pear6: Number,
+        Pecan9: Number,
+        Pecan6: Number,
+        Pumpkin9: Number,
+        Pumpkin6: Number
     },
     request: { type: String },
-    created_at: { type: Date, default: Date.now },
-    pieOrder: {type: Array, default: []}
+    created_at: { type: Date, default: Date.now }
+    //pieOrder: {type: Array, default: []}
 });
 
 var Order = mongoose.model('Order', orderSchema);
