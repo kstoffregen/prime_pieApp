@@ -138,8 +138,8 @@ ul.nav {
   padding: 20px;
 }
 
-.flavor-container .form-group {
-  padding: 10px 20px;
+#flavor-group {
+  padding: 20px 20px;
   max-width: 500px;
 }
 
