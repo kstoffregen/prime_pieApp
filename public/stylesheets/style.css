@@ -80,14 +80,24 @@ ul.nav {
 
 /* Landing page styles */
 #pie.mobile-grid-50 {
+  margin: auto;
   padding: 0;
 }
+
 
 #pie img {
   width: 248px;
   height: 248px;
   object-fit: cover;
   overflow: hidden;
+}
+
+#pie h2 {
+  font-size: 16px;
+  color: #FFFFFF;
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+  padding-left: 10px;
 }
 
 @media (min-width: 735px) {
@@ -116,10 +126,10 @@ ul.nav {
   #pie h2 {
     text-align: center;
     font-size: 16px;
-    /*color: #FFFFFF;*/
-    /*transform: rotate(270deg);*/
-    /*transform-origin: left top 0;*/
-    /*padding-left: 10px;*/
+    color: #444444;
+    transform: none;
+    /*transform-origin: none;*/
+    padding: 0;
   }
 }
 
