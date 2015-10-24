@@ -1,4 +1,28 @@
 extends layout
 
 block content
+  header
+    div(class="clearfix" ng-contoller="navCtrl")
+      //h1= title
+      ul.nav
+        li.nav-left
+          h1= title
+        li.nav-right
+          a(href="/order") Order
+        li.nav-right
+          a(href="/") Flavors
+
   div(class="container" ng-view)
+
+  footer
+    div(class="clearfix")
+      ul.footer
+        li.footer-left(id="copyright") &copy; 2015 NoCoast Pie Co.
+        li.footer-left
+          a(href="/login") Admin
+        li.footer-right
+          a(href="http://www.nocoastpie.com/") Web
+        li.footer-right
+          a(href="https://instagram.com/nocoast_pie/") Instagram
+        li.footer-right
+          a(href="https://www.facebook.com/nocoastpie") Facebook

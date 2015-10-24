@@ -9,7 +9,6 @@ html(ng-app="pieApp")
     link(href='https://fonts.googleapis.com/css?family=Lora:400,700|Poiret+One|Open+Sans:400,700' rel='stylesheet' type='text/css')
     link(rel='stylesheet' href='/stylesheets/style.css')
     //scripts
-    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js")
     script(src='/javascripts/checklist-model.js' type='text/javascript')
@@ -17,29 +16,4 @@ html(ng-app="pieApp")
     base(href='/')
 
   body
-    header
-      div(class="clearfix" ng-contoller="navCtrl")
-        //h1= title
-        ul.nav
-          li.nav-left
-            h1= title
-          li.nav-right
-            a(href="/order") Order
-          li.nav-right
-            a(href="/") Flavors
-
-
     block content
-
-    footer
-      div(class="clearfix")
-        ul.footer
-          li.footer-left(id="copyright") &copy; 2015 NoCoast Pie Co.
-          li.footer-left
-            a(href="/login") Admin
-          li.footer-right
-            a(href="http://www.nocoastpie.com/") Web
-          li.footer-right
-            a(href="https://instagram.com/nocoast_pie/") Instagram
-          li.footer-right
-            a(href="https://www.facebook.com/nocoastpie") Facebook
